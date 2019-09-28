@@ -1,75 +1,81 @@
-import React, { Fragment } from 'react';
-import { Link } from "react-router-dom";
+import React, { Fragment, useState, useEffect } from 'react';
+// import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import Fade from 'react-reveal/Fade';
 import Spin from 'react-reveal/Spin';
-
-
+import ReactImageVideoLightbox from 'react-image-video-lightbox';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 const one = require('../assets/one.svg');
 const two = require('../assets/three.svg');
+const four = require('../assets/four.svg');
+const five = require('../assets/five.svg');
+const six = require('../assets/six.svg');
+const seven = require('../assets/seven.svg');
+const eight = require('../assets/eight.svg');
 const clients = require('../assets/clients.svg');
-const fb_ico = require('../assets/fb.svg');
-const ig_ico = require('../assets/ig.svg');
-const twi_ico = require('../assets/twi.svg');
-const menu_ico = require('../assets/menu.svg');
 const slide1 = require('../assets/ds.svg');
 const play = require('../assets/play.svg');
 const as = require('../assets/as.mp4');
 
-const logo = require("../assets/logofit.svg")
 
 export default function Homepage() {
+
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    useEffect(() => {
+        console.log('stet', lightboxOpen)
+    })
     const settings = {
         dots: true,
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true, 
-        autoplaySpeed: 4000
+        autoplay: true,
+        autoplaySpeed: 4000,
+        appendDots: dots => (
+            <div
+                className='dot_content'
+            >
+                <ul style={{ margin: "0px" }}> {dots} </ul>
+            </div>
+        ),
     };
+
     return (
         <Fragment>
             <div className=" container home-contanter">
                 <div className="yellow-stripe">
                     <div className="yellow_overlay"></div>
                     <div className="sd">
-                        <video id="player" style={{ objectFit: "cover" }} src={as} width="900%" type="video/mp4" muted autoPlay='true' onclick="this.play();">Your browser does not support this streaming content.</video>
+                        <video id="player" style={{ objectFit: "cover" }} src={as} width="900%" type="video/mp4" muted autoPlay={true}>Your browser does not support this streaming content.</video>
                     </div>
 
-                    <div className="yellow-stripe-content">
-                        <div className="play-btn-container">
-                            <div className="yellow-stripe-content">
-                                <div className="inner d-flex">
-                                    <img src={play} alt="" className="pl-3" width="80%" />
+                    <div className="yellow-stripe-content" onClick={() => { setLightboxOpen(true) }}>
+                        <div className="play-btn-container" onClick={() => { setLightboxOpen(true) }}>
+                            <div className="yellow-stripe-content" onClick={() => { setLightboxOpen(true) }}>
+                                <div onClick={() => { setLightboxOpen(true) }} className="inner d-flex">
+
+                                    <img src={play} alt="" className="pl-3" width="80%" onClick={() => { setLightboxOpen(true) }} />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="home-content">
-                    <div className="nav-container d-flex justify-content-around mt-md-5">
-                        <div>
-                            <div className="nav-logo">
-                                <img src={logo} alt="" width="100%" />
-                            </div>
-                        </div>
-                        <div className="d-flex align-items-center">
-                            <ul className="nav">
-                                <li className="ml-md-4"><Link to="/trainings">Trainings</Link></li>
-                                <li className="ml-md-4"><Link to="/trainings">About Us</Link></li>
-                                <li className="ml-md-4"><Link to="/trainings">Our Team</Link></li>
-                                <li className="ml-md-4"><Link to="/trainings">Blog</Link></li>
-                            </ul>
-                        </div>
-                        <div className="d-flex justify-content-between d-flex align-items-center"  >
-                            <div className="nav-cta  mr-md-5">
-                                Lets Talk
-                        </div>
-                            <div className=" ml-md-5">
-                                <img src={menu_ico} width="40px" alt="" />
-                            </div>
-                        </div>
+                {
+                    lightboxOpen &&
+                    <div className="hsg">
+                        <ReactImageVideoLightbox
+                            data={[
+                                { url: 'https://res.cloudinary.com/domee-u/video/upload/v1569691795/videoplayback_2_ab7ckw.mp4', type: 'video', altTag: 'placeholder video' }
+                            ]}
+                            startIndex={0}
+                            showResourceCount={true}
+                            style={{ zIndex: 9999 }}
+                            onCloseCallback={() => { setLightboxOpen(false) }} />
                     </div>
+                }
+                <div className="home-content">
+                    <Header />
                     <div className="d-flex  head-caption justify-content-center align-self-center ">
                         <div className="  head-txt-container">
                             <p className="header-txt1">
@@ -81,7 +87,7 @@ export default function Homepage() {
                                 <span className="text-shad"></span>
                             </p>
                             <p className="header-sub1 ml-auto ">We work closely with our clients to create and convey compelling stories that highlight what makes them unique, innovative and interesting</p>
-                            <div className="" style={{ width: "350px", height: "250px", position: "absolute", left: "-70px", bottom: "100px" }}>
+                            <div className="" style={{ width: "350px", height: "250px", position: "absolute", left: "-90px", bottom: "70px" }}>
                                 <img src={one} width="150%" alt="" />
                             </div>
                         </div>
@@ -111,29 +117,29 @@ export default function Homepage() {
                                     </Fade>
                                     <Fade left>
                                         <div className="p-4">
-                                            <img src={two} width="100%" alt="" />
+                                            <img src={four} width="100%" alt="" />
                                         </div>
                                     </Fade>
                                     <Fade left>
                                         <div className="p-4">
-                                            <img src={two} width="100%" alt="" />
+                                            <img src={five} width="100%" alt="" />
                                         </div>
                                     </Fade>
                                 </div>
                                 <div className="d-flex ">
                                     <Fade right>
                                         <div className="p-4">
-                                            <img src={two} width="100%" alt="" />
+                                            <img src={six} width="100%" alt="" />
                                         </div>
                                     </Fade>
                                     <Fade right>
                                         <div className="p-4">
-                                            <img src={two} width="100%" alt="" />
+                                            <img src={seven} width="100%" alt="" />
                                         </div>
                                     </Fade>
                                     <Fade right>
                                         <div className="p-4">
-                                            <img src={two} width="100%" alt="" />
+                                            <img src={eight} width="100%" alt="" />
                                         </div>
                                     </Fade>
 
@@ -260,66 +266,7 @@ export default function Homepage() {
                     </div>
                 </div>
             </div>
-            <div className="footer pb-md-5 pt-5">
-                <div className="container py-5 px-md-5 pb-md-5 ">
-                    <div className="d-flex mb-md-5 pb-md-5">
-                        <div className="flex-fill">
-                            <p className="footer-header-txt">You want Data <br />and Design Tips?</p>
-                        </div>
-                        <div className="flex-fill px-5 d-flex justify-content-end">
-                            <div className="pl-md-5 ml-md-5 w-100">
-                                <p className="footer-form-txt">Subscribe to our newsletter to receive training offers and the latest news<br /> on our products and services.</p>
-                                <div className="w-100 form_group">
-                                    <input type="text" className="footer-form-input w-100 py-3 px-4" placeholder="Your Email Address" />
-                                    <div className="footer_submit">Subscribe</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="d-flex text-left my-5">
-                        <div className="foot-menus d-flex flex-column flex-fill">
-                            <p className="text-left ">Services</p>
-                            <ul className="p-0 m-0">
-                                <li><Link to="/">Data Aggregation</Link></li>
-                                <li><Link to="/">Website Development</Link></li>
-                                <li><Link to="/">Data Aggregation</Link></li>
-                                <li><Link to="/">Document Design</Link></li>
-                                <li><Link to="/">Infographics</Link></li>
-                            </ul>
-                        </div>
-                        <div className="foot-menus d-flex flex-column flex-fill ">
-                            <p className="text-left ">Fitila</p>
-                            <ul className="p-0 m-0">
-                                <li><Link to="/">About Us</Link></li>
-                                <li><Link to="/">Careers</Link></li>
-                                <li><Link to="/">Blog</Link></li>
-                            </ul>
-                        </div>
-                        <div className="foot-menus d-flex flex-column flex-fill ">
-                            <p className="text-left ">Useful Links</p>
-                            <ul className="p-0 m-0">
-                                <li><Link to="/">Contact Us</Link></li>
-                                <li><Link to="/">Privacy Policy</Link></li>
-                                <li><Link to="/">Terms of Use</Link></li>
-                                <li><Link to="/">FAQs</Link></li>
-                            </ul>
-                        </div>
-                        <div className="foot-menus d-flex flex-column flex-fill ">
-                            <p className="text-left ">Contact</p>
-                            <ul className="p-0 m-0">
-                                <li><Link to="/">+2345786543221</Link></li>
-                                <li><Link to="/">+23467854324545</Link></li>
-                                <li><Link to="/">hello@fitila.africa</Link></li>
-                                <li>
-                                    <span><img src={fb_ico} alt="" /></span>
-                                    <span><img src={twi_ico} alt="" /></span>
-                                    <span><img src={ig_ico} alt="" /></span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Footer />
         </Fragment>
 
     )

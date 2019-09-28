@@ -1,13 +1,54 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Montserrat' !important;
+  font-size: 12px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+a {
+  text-decoration: none !important;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+
+.hsg div{
+  z-index: 9999 !important;
+}
+
+.dot_content {
+
+}
+.slick-dots {
+  position: absolute;
+  right: 4%;
+  bottom: 50px !important;
+}
+.slick-dots li button:before {
+  color: #707070 !important;
+  width: 50px !important;
+  font-size: 10px !important;
+}
+.slick-dots li.slick-active button:before {
+  color: orange !important;
+  width: 50px !important;
+  font-size: 10px !important;
+}
+
+.about-txt {
+  text-align: left;
+font: ExtraLight 12px/14px Montserrat !important;
+letter-spacing: 0;
+color: #030404;
+opacity: 1;
+}
+.about_header_txt {
+  text-align: left;
+  font: Bold 84px/154px Montserrat;
+  letter-spacing: 0;
+  color: #030404;
+  opacity: 1;
 }

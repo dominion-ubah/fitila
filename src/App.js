@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Homepage from './pages/homepage';
 import Aboutpage from './pages/aboutpage';
+import Teampage from './pages/teampage';
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
 const fitilaRoutes = [
@@ -14,6 +15,11 @@ const fitilaRoutes = [
     path: '/about',
     exact: false,
     component: () => <Aboutpage />
+  },
+  {
+    path: '/team',
+    exact: false,
+    component: () => <Teampage />
   }
 ]
 
