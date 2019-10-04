@@ -15,7 +15,7 @@ const seven = require('../assets/seven.svg');
 const eight = require('../assets/eight.svg');
 const clients = require('../assets/clients.svg');
 const slide1 = require('../assets/ds.svg');
-const play = require('../assets/play.svg');
+const playbtn = require('../assets/playbtn2.svg');
 const as = require('../assets/as.mp4');
 
 
@@ -53,9 +53,9 @@ export default function Homepage() {
                     <div className="yellow-stripe-content" onClick={() => { setLightboxOpen(true) }}>
                         <div className="play-btn-container" onClick={() => { setLightboxOpen(true) }}>
                             <div className="yellow-stripe-content" onClick={() => { setLightboxOpen(true) }}>
-                                <div onClick={() => { setLightboxOpen(true) }} className="inner d-flex">
+                                <div onClick={() => { setLightboxOpen(true) }} className=" d-flex">
 
-                                    <img src={play} alt="" className="pl-3" width="80%" onClick={() => { setLightboxOpen(true) }} />
+                                    <img src={playbtn} alt="" className="pl-3" width="80%" onClick={() => { setLightboxOpen(true) }} />
                                 </div>
                             </div>
                         </div>

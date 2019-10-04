@@ -52,3 +52,20 @@ opacity: 1;
   color: #030404;
   opacity: 1;
 }
+
+.drop-box {
+  position: absolute;
+  /* width: 100px; */
+  top: 30px !important;
+  left: -100px;
+  height: 160px;
+  z-index: 9900 !important;
+  background-color:white;
+  box-shadow: -10px 10px 10px #00000029;
+
+}
+
+.drop-box a{
+  
+padding: 0.4em 1em
+}

@@ -3,6 +3,10 @@ body {
 }
 .nav-logo {
   width: 100px;
+  
+}
+.left_m {
+  margin-left: -6em;
 }
 
 .nav li a:link , .nav li a:visited {
@@ -187,10 +191,7 @@ opacity: 1;
   width: 80px;
 height: 80px;
 
-background: #FFBB16 0% 0% no-repeat padding-box;
-box-shadow: -8px 0px 11px #00000029;
 opacity: 1;
-border-radius:50%; 
 
 z-index: 3500;
 }
@@ -199,12 +200,24 @@ z-index: 3500;
   top: 550px;
   right: 105px;
 
-  width: 130px;
-height: 130px;
+  width: 160px;
+height: 160px;
 
 
 
 z-index: 3000;
+
+}
+
+.asda {
+  position: relative;
+  
+}
+.asda >div{
+  position: absolute;
+  top:0px;
+  left: 0px;
+
 
 }
 
